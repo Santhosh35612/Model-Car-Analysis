@@ -1,75 +1,108 @@
 # Model-Car-Analysis
 
 ## Overview
-Model-Car-Analysis is a comprehensive, SQL-driven analytics project for a model car business. The database design, queries, and analysis files together provide actionable insights into customers, sales orders, products, payments, employee performance, and office operations.
+Model-Car-Analysis is a comprehensive SQL-driven analytics project for a model car business. It leverages a relational database to generate actionable insights about customers, orders, products, payments, employees, and offices. All reporting, analysis, and business intelligence tasks are completed through SQL scripts; insights and recommendations are documented and visualized in slides.
 
 ## Database Structure
 
 | Table         | Description                                              |
 |---------------|---------------------------------------------------------|
-| Customers     | Customer data                                           |
-| Products      | Scale model car catalog                                 |
-| ProductLines  | Categories for product organization                     |
-| Orders        | Sales orders from customers                             |
-| OrderDetails  | Line items for each order                               |
-| Payments      | Customer payments, credit tracking                      |
-| Employees     | Staff data, org structure, sales reps                   |
+| Customers     | Customer data, credit limits, contact info              |
+| Products      | Scale model cars catalog, prices, inventory             |
+| ProductLines  | Product categories                                      |
+| Orders        | Order placements by customers                           |
+| OrderDetails  | Items and prices for each order                         |
+| Payments      | Payment records and credit tracking                     |
+| Employees     | Employee details and org chart                          |
 | Offices       | Sales office locations                                  |
 
-(Relation details and attributes are shown in the ER Diagram.)
+## Analysis Scripts (SQL)
 
-## Business Analysis & Insights
+**Customer-Data-Analysis.sql**
+- Top customers by credit limit and total sales
+- Average credit limit by country and region
+- Detects dormant customers (no orders)
+- Customer-sales rep associations
+- Payment recency and credit alerts
+- Product line segmentation (procedure)
+- Customers who purchased premium products
 
-**Customer Analysis (`Customer-Data-Analysis.sql`)**
-- Top 10 customers by credit limit
-- Average credit limit per country
-- Customer count by region/state
-- Unengaged customers without orders
-- Total sales per customer
-- Customer/sales rep relationships
-- Recent payments per customer
-- Credit limit exceeders
-- Customers buying by product line (procedure)
-- Customers who bought the most expensive product
+**Order-Analysis.sql**
+- Computes average order value per customer
+- Tracks monthly order volumes
+- Flags pending shipments and statuses
+- Joins customer/order details for reporting
+- Identifies profitable and recent orders
+- Calculates order-based sales and product combos
+- Automation via triggers for credit/inventory policies
 
-**Order Analysis (`Order-Analysis.sql`)**
-- Average order amounts and total sales per order
-- Orders placed per month
-- Pending shipments and order tracking
-- Recent orders and profitable orders
-- Most frequently ordered products
-- Revenue, profit calculations, and triggers for credit/inventory updates
-- Popular product combinations
+**Product-Data-Analysis.sql**
+- Counts by product line, pricing bands
+- Flags low inventory (<10 units), need for restock
+- Analyzes product and product line sales performance
+- Identifies most/least expensive and most popular items
 
-**Product Analysis (`Product-Data-Analysis.sql`)**
-- Count per product line, high-value lines
-- Price and inventory analysis
-- Top-selling products (procedure)
-- Products ordered by most customers
-- Low inventory flagging for specific lines
+**Employee-Data-Analysis.sql**
+- Total staff and distribution by job title
+- Reports-to structure (leadership mapping)
+- Sales representative ranking by total generated revenue
+- Lists office-wise top performers
+- Benchmarks profitability
 
-**Employee Analysis (`Employee-Data-Analysis.sql`)**
-- Employee and job title counts
-- Leadership structure
-- Sales rep performance and profit contributions
-- Employees exceeding office average sales
+**Office-Data-Analysis.sql**
+- Employee counts per office/city
+- Gaps and clusters in office staffing
+- Territory coverage and office regions
+- Flags offices with no active employees
+- Shows most profitable office locations and average customer credit
 
-**Office Analysis (`Office-Data-Analysis.sql`)**
-- Employee count per office/location
-- Most/least staffed offices
-- Office territory and location mapping
-- Profitable office locations
-- Average customer credit per office
+## Presentation (`SQL-Project-PPT.pptx`)
+- Executive summary, DB structure (ER diagram)
+- Workforce and sales hierarchy across 7 offices
+- Sales performance highlights (top reps, offices)
+- Customer segmentation, dormant accounts, and payment trends
+- Office territory and regional efficiency
+- Product lines: sales volume, premium markets
+- Inventory/stock alerts, product profitability
+- Order analysis: trends, peak months, best orders
+- Automation via triggers; impact on operations
+- Strategic takeaways, recommendations
 
-## Core Files
+## Key Business Findings
+- Julie Firrelli is the top sales rep ($491K revenue), Boston office leads globally, Paris = top revenue ($1.04M+)
+- March & November are high-sales months, dormant customer pool detected, premium product buyers clustered by region
+- Classic Cars are top revenue line, motorcycles = niche premium market
+- Automation reduces errors, enforces credit/inventory policies, boosts reporting accuracy
 
-- `DS1_C2_S9_Database_modelcarsdb.sql` — SQL schema and demo dataset
-- `/Analysis/` — Modular SQL scripts for each business area (see above)
-- `Summary.docx` — Extracted insights and business recommendations
-- `Data Dictionary.png` — Data table summary
-- `ER Diagram.png` — Full entity-relationship diagram
-- `SQL Project PPT.pptx` — Slideshow covering project logic and results
+## Files Included
+
+- `DS1_C2_S9_Database_modelcarsdb.sql` (full schema + sample data)
+- `Customer-Data-Analysis.sql`
+- `Order-Analysis.sql`
+- `Product-Data-Analysis.sql`
+- `Employee-Data-Analysis.sql`
+- `Office-Data-Analysis.sql`
+- `Summary.docx` (findings + recommendations)
+- `SQL-Project-PPT.pptx` (visual slides)
+- `Data Dictionary.png` (field overview)
+- `ER Diagram.png` (database relationships)
 
 ## Getting Started
 
-1. **Clone the Repository**
+2. Set up the database:
+- Use `DS1_C2_S9_Database_modelcarsdb.sql` in MySQL/MariaDB
+3. Analyze:
+- Run any supplied `.sql` file using your SQL client
+4. Review:
+- Open Summary and PPT for business recommendations and visualization
+
+## Usage
+
+- Learn/practice SQL analytics and business intelligence
+- Refer to a complete case for BI reporting and database design
+- Extend for dashboards, triggers, or additional analytics
+
+--
+
+**Author:** Santhosh (Chandra Sekar)
+
